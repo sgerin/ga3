@@ -18,6 +18,9 @@ ifneq ($(strip $(shell $(CC) -v 2>&1 | grep -i "Linux")),)
  BROWSER = mozilla
 endif
 #
+
+
+
 job: one two dox
 	one -c4 && two -n100 && $(BROWSER) DOX/html/index.html &
 one: one.o
@@ -33,15 +36,15 @@ inclusion: inclusion.o
 inclusion.o : inclusion.c
 	$(CC) $(GL_INCLUDE) $(CFLAGS) $<
 
-#
+
 clean:
 	@echo "operating system = $(OS)"
 	rm -rf *.o one two DOX
 
-################################################################################
+###############################################################################
 # Generate doxygen documentation of file two.c using command file two.dox.
 dox: two.c two.h
 	rm -rf DOX
 	doxygen two.dox
-#
+
 
