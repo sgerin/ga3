@@ -220,6 +220,7 @@ int is_polygon_degenerate()
 		}
 	}
 	return 0; 
+	//comment
 }*/
 
 /*void rmdup(int *array, int length)
